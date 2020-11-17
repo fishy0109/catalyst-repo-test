@@ -85,6 +85,11 @@ footer {
         &:hover {
           border-color: lighten($footer-social-border, 30%);
         }
+
+        @include breakpoint(xs) {
+          margin-left: 15px;
+          margin-right: 15px;
+        }
       }
 
       .cat-footer-menu {
@@ -148,10 +153,19 @@ footer {
 
           img {
             width: $footer-map-width;
+          }
+        }
 
-            @include breakpoint(sm) {
-              width: $footer-map-width-sm;
-            }
+        @include breakpoint(xs) {
+          flex-direction: column;
+
+          .cat-footer-br {
+            order: 1;
+            text-align: center;
+          }
+
+          .cat-footer-bl {
+            order: 2;
           }
         }
       }
@@ -201,8 +215,9 @@ footer {
 
         .cat-footer-bottom {
           .cat-footer-bl {
-            font-size: $footer-bottom-font-size-sm;
+            font-size: $small-font-size;
             padding-right: $footer-explore-px;
+            text-align: center;
           }
         }
 

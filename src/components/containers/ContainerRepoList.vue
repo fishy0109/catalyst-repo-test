@@ -62,7 +62,7 @@
             class="form-control"
             id="sort"
             v-model="sortBy"
-            @change="sortData()"
+            @change="sortData(sortBy, orderBy)"
           >
             <option
               v-for="(option, index) in sortOptions"
@@ -84,7 +84,7 @@
             class="form-control"
             id="order"
             v-model="orderBy"
-            @change="sortData()"
+            @change="sortData(sortBy, orderBy)"
           >
             <option
               v-for="(option, index) in orderOptions"
@@ -210,13 +210,15 @@ export default {
       }
 
     }
+
   },
 
   methods: {
-    sortData() {
-      var sortKey = this.sortBy;
+    
+    sortData(sortkey, order) {
+      console.log(sortkey + order);
       return this.filteredCompItems.sort(function(a, b) {
-        if(this.orderBy == "ASC") {
+        if(order == "ASC") {
           return a.sortkey - b.sortkey;
         } else {
           return b.sortkey - a.sortkey;

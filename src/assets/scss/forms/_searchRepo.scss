@@ -6,9 +6,18 @@
       width: 100%;
       justify-content: space-between;
 
+      @include breakpoint(xs) {
+        display: block !important;
+      }
+
       label {
         width: 30%;
         border-radius: 0;
+
+        @include breakpoint(xs) {
+          width: 100%;
+          margin-bottom: 1rem;
+        }
       }
     }
   }

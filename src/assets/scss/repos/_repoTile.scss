@@ -16,11 +16,25 @@ $repo-item-margin-bottom: $spacer;
   @include moverUpOnHover();
   @include shadow();
 
+  > .row {
+    @include breakpoint(xs) {
+      width: unset !important;
+    }
+  }
+
   .cat-repo-item-inner {
     padding-right: $spacer;
 
     @include breakpoint(lg) {
       margin-bottom: $repo-item-margin-bottom * 2;
+    }
+
+    @include breakpoint(xs) {
+      padding-right: 0;
+
+      > .row {
+        flex-direction: column;
+      }
     }
 
     .cat-section-header {
@@ -93,6 +107,11 @@ $repo-item-margin-bottom: $spacer;
             transform: scale(1.1);
           }
         }
+      }
+
+      @include breakpoint(xs) {
+        padding-left: 15px;
+        margin-bottom: 1rem;
       }
     }
 
