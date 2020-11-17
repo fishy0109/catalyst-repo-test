@@ -1,0 +1,175 @@
+$card-text: $cat-gunmetal;
+$card-padding: $spacer * 2;
+$card-margin-bottom: $spacer * 2;
+$card-border-color: #efefef;
+$card-border-color-dark: #333535;
+
+.cat-bg-pattern {
+  background-color: $cat-light-grey-2;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.cat-card-repo-title {
+  a {
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+
+      .total {
+        text-decoration: none;
+        transform: translateX($arrow-animation-movement);
+      }
+    }
+  }
+
+  .cat-section-header-text {
+    svg {
+      color: $cat-red;
+      margin-right: 10px;
+    }
+
+    .total {
+      font-size: $large-font-size;
+      padding: 5px 10px;
+      background-color: $cat-pink;
+      border-radius: 32px;
+      margin-left: 10px;
+      transition: transform $global-transition-speed ease;
+    }
+  }
+}
+
+.cat-card-item {
+  width: 100%;
+  margin-bottom: $global-item-margin-bottom;
+  height: calc(100% - #{$global-item-margin-bottom});
+}
+
+.cat-card {
+  width: 100%;
+  border: none;
+  z-index: 1;
+  height: 100%;
+  max-height: 100%;
+  background: transparent;
+  @include shadow();
+  @include moverUpOnHover();
+
+  h3 {
+    font-size: $h5-font-size;
+    font-weight: $weight-semi;
+  }
+
+  h4 {
+    font-size: $card-heading-font-size;
+    font-weight: $weight-normal;
+  }
+
+  h6 {
+    font-size: $small-font-size;
+    font-weight: $weight-semi;
+    margin: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .card-header,
+  .card-body,
+  .card-footer {
+    background-color: $cat-white;
+  }
+
+  .card-header {
+    border-bottom: 1px solid $card-border-color;
+  }
+
+  .card-body {
+    padding: $card-padding * 0.75 $card-padding;
+    flex: 1 1 auto;
+
+    .cat-repo-time {
+      display: inline-block;
+      color: $cat-red;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+
+    .cat-repo-lang {
+      color: $cat-white;
+      font-size: $small-font-size;
+      padding: 2px 8px;
+      border-radius: 5px;
+
+      &-Perl {
+        background-color: $perl;
+      }
+
+      &-PHP {
+        background-color: $php;
+      }
+
+      &-Python {
+        background-color: $python;
+      }
+
+      &-ActionScript {
+        background-color: $as;
+      }
+
+      &-Assembly {
+        background-color: $assembly;
+      }
+
+      &-JavaScript {
+        background-color: $js;
+      }
+
+      &-Puppet {
+        background-color: $puppet;
+      }
+    }
+
+    h5 {
+      margin-top: $spacer;
+      font-weight: $weight-semi;
+
+      svg {
+        margin-right: 5px;
+        color: $cat-red;
+      }
+    }
+
+    .cat-repo-desc {
+      color: $card-text;
+      margin-bottom: $spacer * 1.5;
+
+      a {
+        color: $cat-red;
+        @include transition($btn-transition);
+        @include linkOpacityHover(0.75);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .card-footer {
+    border-top: 1px solid $card-border-color;
+    padding: $card-padding * 0.5 $card-padding;
+    color: $cat-gunmetal;
+
+    svg {
+      margin-right: 5px;
+    }
+
+    span {
+      margin-right: 1rem;
+      font-size: $small-font-size;
+    }
+  }
+}

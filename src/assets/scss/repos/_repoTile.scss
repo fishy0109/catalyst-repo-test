@@ -1,0 +1,164 @@
+$repo-item-icon-width: 40px;
+$repo-item-color: $cat-gunmetal;
+$repo-item-border-color: $cat-light-grey-2;
+$repo-item-margin-bottom: $spacer;
+
+.cat-repo-item {
+  display: flex;
+  border-radius: $border-radius;
+  padding: $card-padding;
+  padding-bottom: calc(#{$card-padding} - #{$repo-item-margin-bottom});
+  background-color: $white;
+  color: $repo-item-color !important;
+  font-family: $font-family2;
+  margin-bottom: $global-item-margin-bottom;
+  text-decoration: none !important;
+  @include moverUpOnHover();
+  @include shadow();
+
+  .cat-repo-item-inner {
+    padding-right: $spacer;
+
+    @include breakpoint(lg) {
+      margin-bottom: $repo-item-margin-bottom * 2;
+    }
+
+    .cat-section-header {
+      font-weight: $weight-semi;
+      margin-bottom: $spacer/2;
+
+      h4 {
+        display: inline-block;
+        font-weight: inherit;
+
+        svg {
+          margin-right: 5px;
+          color: $cat-red;
+        }
+      }
+
+      .cat-repo-lang {
+        color: $cat-white;
+        font-size: $small-font-size;
+        padding: 2px 8px;
+        border-radius: 5px;
+        margin-left: 1rem;
+
+        &-Perl {
+          background-color: $perl;
+        }
+
+        &-PHP {
+          background-color: $php;
+        }
+
+        &-Python {
+          background-color: $python;
+        }
+
+        &-ActionScript {
+          background-color: $as;
+        }
+
+        &-Assembly {
+          background-color: $assembly;
+        }
+
+        &-JavaScript {
+          background-color: $js;
+        }
+
+        &-Puppet {
+          background-color: $puppet;
+        }
+      }
+    }
+
+    .cat-repo-contrib {
+      span {
+        margin-right: 10px;
+      }
+
+      a {
+        transition: transform $global-transition-speed ease;
+
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    p {
+      margin-bottom: $repo-item-margin-bottom;
+    }
+  }
+
+  .cat-repo-item-info {
+    font-weight: $weight-semi;
+    padding-left: $spacer;
+    padding-right: $spacer;
+    position: relative;
+
+    @include breakpoint(lg) {
+      padding: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      top: -$card-padding;
+      left: -$spacer;
+      height: calc(100% + #{$card-padding * 2});
+      width: 1px;
+      background-color: $repo-item-border-color;
+      content: "";
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding-left: $repo-item-icon-width;
+        margin-bottom: $repo-item-margin-bottom;
+        position: relative;
+
+        &:first-child {
+          color: $cat-black;
+        }
+
+        i,
+        .fa,
+        svg {
+          width: $repo-item-icon-width;
+          position: absolute;
+          top: 4px;
+          left: -5px;
+          color: $cat-red;
+          font-size: $med-font-size;
+          line-height: $line-height-base;
+        }
+
+        .count {
+          padding: 0 7px;
+          border: 2px solid $cat-grey;
+          border-radius: 5px;
+          color: $cat-red;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

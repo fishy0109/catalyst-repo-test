@@ -1,0 +1,242 @@
+// cat colour vars
+//
+$cat-red: #bf2328;
+$cat-pink: #f9e9ea;
+$cat-grey: #c0c6c7;
+$cat-gunmetal: #5a6770;
+$cat-black: #000;
+$cat-white: #fff;
+$cat-dark-grey-1: #1a1a1a; // dark theme ... one of them?
+$cat-dark-grey-2: #232424; // dark theme ... one of them?
+$cat-light-grey-1: #e1e3e5;
+$cat-light-grey-2: #f9f9f9;
+
+// boostrap colour var
+//
+$blue: #128091;
+$green: #519541;
+$purple: #9b3a95;
+$red: #d61e1e;
+$grey: $cat-grey;
+$primary: $cat-red;
+$secondary: #eff1f1;
+$secondary-alt: #222222;
+$success: $green;
+$danger: $red;
+$pColor: $primary;
+$sColor: $secondary;
+$tColor: $purple;
+$dark: $cat-dark-grey-2;
+$light: $cat-light-grey-2;
+
+// colour var
+//
+$facebook: #4064ad;
+$twitter: #1c9ded;
+$linkedin: #0076b4;
+
+// git language colour
+$perl: #0298c3;
+$python: #3572a5;
+$php: #4f5d95;
+$js: #f1e05a;
+$as: #9b3a95;
+$assembly: #128091;
+$puppet: #519541;
+
+// animations
+//
+$global-transition-speed: 0.4s;
+$arrow-animation-movement: 5px;
+
+// Common variables
+//
+$body-bg: white;
+$body-color: $cat-dark-grey-1;
+$font-family-base: "Open Sans", sans-serif;
+$headings-font-family: "Titillium Web", sans-serif;
+$font-family1: $font-family-base;
+$font-family2: $headings-font-family;
+$headings-color: $cat-black;
+$headings-font-weight: 400;
+
+$link-color: $cat-red;
+$link-hover-color: $cat-red;
+$border-width: 1px;
+$border-color: $cat-grey; // first set on banner search button line
+
+$border-radius-sm: 0.15rem; //2.4px
+$border-radius: 0.25rem; //4px
+$border-radius-lg: 0.5rem; //8px
+
+// Fonts
+//
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$form-label-font-size: 15px;
+$h1-font-size: $font-size-base * 3; //48px
+$h2-font-size: $font-size-base * 2.25; //36px
+$h3-font-size: $font-size-base * 1.75; //28px
+$h4-font-size: $font-size-base * 1.5; //24px
+$h5-font-size: $font-size-base * 1.375; //22px
+$h6-font-size: $font-size-base;
+$card-heading-font-size: 20px;
+
+$h1-font-size-md: 42px;
+$h2-font-size-md: 32px;
+$h3-font-size-md: 26px;
+$h4-font-size-md: $font-size-base * 1.5;
+$h5-font-size-md: $font-size-base * 1.375;
+
+$h1-font-size-sm: 35px;
+$h2-font-size-sm: 30px;
+$h3-font-size-sm: 24px;
+$h4-font-size-sm: $font-size-base * 1.375;
+$h5-font-size-sm: 21px;
+
+$display1-size: 6rem;
+$display2-size: 5.5rem;
+$display3-size: 4.5rem;
+$display4-size: 3.5rem;
+
+$super-mini-font-size: 10px;
+$mini-font-size: 0.75rem; //12px
+$small-font-size: 0.875rem; //14px
+$med-font-size: 18px;
+$large-font-size: 22px;
+
+$weight-bold: 700;
+$weight-semi: 600;
+$weight-normal: 400;
+$weight-light: 300;
+
+// Forms
+//
+$input-font-size: 15px;
+$input-color: $cat-black;
+$input-placeholder-color: #908f8f;
+$input-border-color: #c7c7c7;
+$input-border-width: 1px;
+$input-box-shadow: 0;
+
+// Input
+//
+$input-height: 50px;
+$input-btn-padding-y-sm: 0.25rem;
+$input-btn-padding-x-sm: 0.5rem;
+$input-btn-padding-y: 0.375rem;
+$input-btn-padding-x: 0.75rem;
+$input-btn-padding-y-lg: 0.5rem;
+$input-btn-padding-x-lg: 2rem;
+
+// Buttons
+//
+$btn-secondary-color: $cat-gunmetal;
+$btn-secondary-color-alt: $cat-white;
+$btn-font-family: $headings-font-family;
+$btn-font-size-sm: $small-font-size;
+$btn-font-size: $small-font-size;
+$btn-font-size-lg: $font-size-base;
+$btn-font-weight: $weight-bold;
+$btn-padding-y-sm: 0.4rem;
+$btn-padding-x-sm: 1rem;
+$btn-padding-y: 0.78rem;
+$btn-padding-x: 1.8rem;
+$btn-padding-y-lg: 1rem;
+$btn-padding-x-lg: 3rem;
+$btn-border-radius: $border-radius-lg;
+$btn-border-radius-lg: $border-radius-lg;
+$btn-border-radius-sm: $border-radius;
+
+// Select2
+//
+$vs-border-width: $input-border-width;
+$vs-border-color: $input-border-color;
+$vs-state-active-bg: $cat-grey;
+$vs-state-active-color: #fff;
+$vs-dropdown-bg: #fff;
+$vs-border-radius: $border-radius;
+$vs-padding-y: 10px;
+$vs-dropdown-box-shadow: none;
+
+// Cards
+//
+$card-columns-gap: 30px;
+$card-global-max-height: 580px;
+
+// Radio / Checkboxs / Selects
+//
+$radio-checkbox-height: 20px;
+$radio-checkbox-bg: $pColor;
+$radio-checkbox-active: $pColor;
+$radio-checkbox-hover: darken($pColor, 10%);
+$radio-border-width: $input-border-width;
+$radio-border-radius: 100%;
+$radio-checkbox-border-radius: 3px;
+
+// Alerts
+//
+$alert-link-font-weight: $weight-normal;
+$alert-padding-y: 2rem;
+$alert-padding-x: 0;
+$alert-bg-level: -4;
+$alert-border-level: 0;
+$alert-color-level: 7;
+$alert-border-radius: 0;
+$alert-border-width: 0;
+
+// Betabar
+$bedta-bar-height: 50px;
+
+// Spacers
+//
+$spacer: 1rem;
+$spacers: ();
+$small-gutter: $spacer/2;
+
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: $spacer,
+    2: $spacer * 2,
+    3: $spacer * 3,
+    4: $spacer * 4,
+    5: $spacer * 5,
+    6: $spacer * 7,
+  ),
+  $spacers
+);
+
+$global-margin-bottom-lg: $spacer * 3;
+$global-margin-bottom-md: $spacer * 2;
+
+// this is value is taken away from container paddinglg, md and sm
+// to ensure padding top and bottom is correct
+// all compoenents are give the below value as their margin bottom
+// see _containerPadding.scss
+$global-item-margin-bottom: map-get($spacers, 2);
+$global-large-mob-gutter: $spacer * 2.5;
+$global-large-mob-gutter-sm: map-get($spacers, 2);
+$form-group-margin-bottom: $global-item-margin-bottom;
+
+// Grid
+//
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// );
+
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1140px
+// );
+
+// Help
+//
+// Calculate 2 variables = calc(#{$input-height-inner-sm} + #{$input-height-border})
+// Call theme colour variable = theme-color("danger");

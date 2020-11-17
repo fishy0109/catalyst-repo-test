@@ -1,0 +1,338 @@
+// @include transition($btn-transition);
+// @include breakpoint();
+// @include shadow();
+// @include linkOpacityHover();
+
+// being lasy and only wanting to write @include breakpoint(screen ref) rather than @include media-breakpoint-down(screen ref)
+@mixin breakpoint($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin shadow($opacity: 0.06, $hover: true) {
+  position: relative;
+  transform-style: preserve-3d;
+
+  @if ($hover) {
+    &:hover {
+      &:before {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        width: 90%;
+      }
+    }
+  }
+
+  // Bottom rounded shadow
+  &:before {
+    transition: 0.2s ease-in-out box-shadow;
+    content: " ";
+    border-radius: 6rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%) translateZ(-1px);
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      box-shadow: none;
+      transform: none;
+      left: 0;
+      height: 2px;
+      width: 100% !important;
+      border-bottom: 2px solid $border-color;
+      opacity: 0.2;
+    }
+  }
+}
+
+@mixin imageGradient() {
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 42%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+}
+
+@mixin linkOpacityHover($opacity: 0.8, $animateHover: false) {
+  @if ($animateHover) {
+    transition: color 0.2s ease, background-size 0.2s ease-in-out,
+      opacity 0.15s ease-in-out;
+  } @else {
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  opacity: $opacity;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@mixin overlay() {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.2s ease;
+}
+
+// animations
+//
+@mixin moverUpOnHover() {
+  transform: translateY(0);
+  transition: 0.2s ease-in-out transform;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@mixin arrorRightAnimation() {
+  .fa,
+  i {
+    transition: transform $global-transition-speed ease;
+  }
+
+  &:hover {
+    .fa,
+    i {
+      color: $cat-red;
+      transform: translateX($arrow-animation-movement);
+    }
+  }
+}
+
+@mixin fancyAHover(
+  $hoverColor: $cat-red,
+  $opacity: false,
+  $exclude-icon-width: 0px
+) {
+  color: $body-color;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: color 0.2s ease, background-size 0.2s ease-in-out;
+  background: linear-gradient(
+    to bottom,
+    rgba($hoverColor, 1) 0%,
+    rgba($hoverColor, 1) 98%
+  );
+  background-size: calc(100% - #{$exclude-icon-width}) 1px;
+  background-repeat: no-repeat;
+  background-position: $exclude-icon-width 100%;
+  position: relative;
+
+  @if ($opacity) {
+    @include linkOpacityHover($animateHover: true);
+  }
+
+  &:hover {
+    background-size: 0px 1px;
+    background-position: right 100% !important;
+  }
+}
+
+@mixin fancyHoverInvert($hoverColor: $cat-red, $color: $cat-red) {
+  color: $color;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: color 0.2s ease, background-size 0.2s ease-in-out;
+  background: linear-gradient(
+    to bottom,
+    rgba($hoverColor, 1) 0%,
+    rgba($hoverColor, 1) 98%
+  );
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  background-position: right 100%;
+  position: relative;
+
+  &:hover {
+    background-size: 100% 1px;
+    background-position: left 100% !important;
+  }
+}
+
+@mixin resetToDefContentScss() {
+  // currently used in molCardHeadingMultipuleLinks.scss
+  //
+  a {
+    padding: 0;
+    display: inline;
+    border: 0 none;
+
+    &:not(.dod-download-file) {
+      @include fancyAHover();
+    }
+
+    &.dod-download-file {
+      padding-left: 30px;
+
+      &:hover {
+        color: $cat-red;
+      }
+    }
+  }
+
+  h2.dod-content-h2 {
+    margin-bottom: $global-item-margin-bottom;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: $ul-list-indent;
+
+    li {
+      display: inherit;
+      position: relative;
+      padding: 0 0 $global-item-margin-bottom/1.5 20px;
+      margin: inherit;
+
+      &:before {
+        position: absolute;
+        top: 9px;
+        left: 0;
+        height: 5px;
+        width: 5px;
+        background: $body-color;
+        content: "";
+      }
+
+      ul {
+        padding-left: 0;
+
+        li {
+          padding: $spacer * 0.5 0 0 $spacer * 1.625;
+
+          &:before {
+            top: $spacer;
+          }
+        }
+      }
+    }
+  }
+
+  p {
+    margin-bottom: $global-item-margin-bottom;
+  }
+
+  h2,
+  .h2,
+  h3,
+  .h3 {
+    font-weight: $weight-semi;
+  }
+
+  h2 + p,
+  .h2 + p,
+  h2 + blockquote,
+  .h2 + blockquote {
+    margin-top: $global-item-margin-bottom;
+  }
+
+  h3 + p,
+  .h3 + p,
+  h3 + blockquote,
+  .h3 + blockquote {
+    margin-top: $global-item-margin-bottom/2;
+  }
+
+  p + h2,
+  p + .h2 {
+    margin-top: $global-item-margin-bottom * 2;
+  }
+}
+
+@mixin transitionLoop($last: 15) {
+  @for $i from 1 through $last {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+// swap all button to lighter on hover by default
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant(
+      $value,
+      $value,
+      $hover-background: lighten($value, 7.5%),
+      $hover-border: lighten($value, 10%),
+      $active-background: lighten($value, 10%),
+      $active-border: lighten($value, 12.5%)
+    );
+  }
+}
+
+@mixin delayedFadeInAnimation($delay: 0.2) {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}n) {
+      animation-delay: #{$i * $delay}s;
+    }
+  }
+}
+
+@mixin alertDarkText() {
+  color: $body-color;
+
+  .dod-alert-btn-close {
+    color: $body-color;
+  }
+
+  .dod-alert-text {
+    .dod-alert-text-inner {
+      color: inherit;
+
+      a {
+        @include fancyAHover($hoverColor: $body-color, $opacity: true);
+        color: $body-color;
+
+        &:after {
+          background: $body-color;
+        }
+      }
+    }
+  }
+
+  .dod-slider-controls {
+    color: $body-color;
+
+    .dod-slider-controls-pos {
+      .dod-slider-controls-pos-indicator,
+      .dod-slider-controls-pos-total {
+        background-color: $body-color;
+      }
+    }
+
+    .dod-slider-controls-buttons {
+      a {
+        color: $body-color;
+        border-color: $body-color;
+
+        &:hover {
+          border-color: $body-color;
+        }
+      }
+    }
+  }
+}

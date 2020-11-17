@@ -1,0 +1,166 @@
+$cat-nav-global-logo-height: 50px;
+$cat-nav-global-logo-default-bg: #f7f7f7;
+$cat-nav-global-logo-hover-bg: #fcfcfc;
+$cat-nav-global-bg-dark: $cat-dark-grey-2;
+$cat-nav-global-color: #c1c6c8;
+$cat-nav-global-logo-default-bg-dark: #262626;
+$cat-nav-global-logo-hover-bg-dark: #151515;
+$cat-nav-global-logo-max-width: 130px;
+
+@import "navigationMob";
+
+// Extended styles found in organismNavigationMob
+.cat-header-mobile-menus-wrap {
+  &.nav-global {
+    .cat-header-mob-trigger {
+      display: flex;
+      top: 13px;
+    }
+  }
+}
+
+.cat-nav-global {
+  height: $cat-nav-global-logo-height;
+  position: relative;
+  background-color: $cat-nav-global-logo-default-bg;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  &.theme-dark {
+    background-color: $cat-nav-global-bg-dark;
+    color: $white;
+
+    .cat-nav-global-inner {
+      .cat-nav-global-logo {
+        overflow: hidden;
+
+        a {
+          color: $cat-nav-global-color;
+          border-left: 1px solid $black;
+
+          .cat-nav-global-logo-inner {
+            .cat-nav-global-logo-default {
+              background-color: $cat-nav-global-logo-default-bg-dark;
+            }
+
+            .cat-nav-global-logo-hover {
+              background-color: $cat-nav-global-logo-hover-bg-dark;
+            }
+          }
+        }
+      }
+    }
+
+    .cat-header-mobile-menus-wrap {
+      .cat-header-mob-trigger {
+        .cat-header-mob-trigger-icon {
+          span {
+            background: $white;
+          }
+        }
+
+        .cat-header-mob-trigger-text {
+          color: $cat-nav-global-color;
+        }
+      }
+    }
+  }
+
+  .cat-nav-global-inner {
+    color: $btn-secondary-color;
+    font-family: $font-family2;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+
+    .cat-nav-global-logo {
+      display: flex;
+      justify-content: center;
+
+      a {
+        position: relative;
+        width: 100%;
+        max-width: $cat-nav-global-logo-max-width;
+        text-align: center;
+        font-size: $mini-font-size;
+        color: $btn-secondary-color;
+        border-left: 1px solid $white;
+
+        // turn off on ie <= 11
+        @media all and (-ms-high-contrast: none) {
+          .cat-nav-global-logo-inner {
+            transform: none !important;
+
+            .cat-nav-global-logo-default {
+              transform: none !important;
+              z-index: 1 !important;
+            }
+
+            .cat-nav-global-logo-hover {
+              transform: none !important;
+              z-index: 0 !important;
+            }
+          }
+        }
+
+        &:hover {
+          .cat-nav-global-logo-inner {
+            transform: translateZ(-$cat-nav-global-logo-height/2) rotateX(90deg);
+          }
+        }
+
+        .cat-nav-global-logo-inner {
+          display: block;
+          width: 100%;
+          height: $cat-nav-global-logo-height;
+          position: relative;
+          transform-style: preserve-3d;
+          transform: translateZ(-$cat-nav-global-logo-height/2);
+          transition: transform 0.5s;
+
+          .cat-nav-global-logo-default,
+          .cat-nav-global-logo-hover {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            width: 100%;
+            height: $cat-nav-global-logo-height;
+            transition: transform 0.8s;
+
+            // fire this first time to hide button set up
+            opacity: 0;
+            animation: setUpButton 0.5s 0.55s forwards;
+            animation-iteration-count: 1;
+          }
+
+          .cat-nav-global-logo-default {
+            background-color: $cat-nav-global-logo-default-bg;
+            transform: rotateY(0deg) translateZ($cat-nav-global-logo-height/2);
+          }
+
+          .cat-nav-global-logo-hover {
+            background-color: $cat-nav-global-logo-hover-bg;
+            transform: rotateX(-90deg) translateZ($cat-nav-global-logo-height/2);
+
+            svg {
+              margin-left: $spacer * 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes setUpButton {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

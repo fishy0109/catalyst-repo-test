@@ -1,0 +1,67 @@
+$app-icons-item-color: #1a1a1a;
+$app-icons-item-bg: $cat-pink;
+$app-icons-item-width: 90px;
+
+.cat-icons-app {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include breakpoint(md) {
+    min-width: 750px;
+  }
+}
+
+.cat-icons-app-wrap {
+  overflow-x: auto;
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+}
+
+.cat-icons-app-item {
+  position: relative;
+  color: $app-icons-item-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1 1 0;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: $global-item-margin-bottom;
+
+  .cat-icons-shadow {
+    background-color: $cat-pink;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -60px;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .cat-icons-app-icon {
+    img {
+      transition: 0.2s ease all;
+    }
+  }
+
+  .cat-icon-title {
+    font-weight: $weight-bold;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    text-decoration: none;
+
+    .cat-icons-app-icon {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

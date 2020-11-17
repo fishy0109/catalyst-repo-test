@@ -1,0 +1,41 @@
+{
+  "iconItems": [
+    {
+      "icon": "https://catalyst-ca.net/sites/default/files/styles/landing_block/public/2020-01/icon_whatwedo_03.png?itok=hPrjneNv",
+      "heading": "eLearning",
+      "description": "We provide expertise in eLearning platforms such as Mahara, Moodle, and TotaraLMS.",
+      "link": "/"
+    },
+    {
+      "icon": "https://catalyst-ca.net/sites/default/files/styles/landing_block/public/2020-01/icon_whatwedo_02.png?itok=QvjTR6JI",
+      "heading": "Design and software development",
+      "description": "We provide a range of expertise and technologies to meet organisations’ business requirements.",
+      "link": "/"
+    },
+    {
+      "icon": "https://catalyst-ca.net/sites/default/files/styles/landing_block/public/2020-01/icon_whatwedo_06.png?itok=J884RnF1",
+      "heading": "Outsourced support",
+      "description": "Catalyst-hosted and remote servers and desktops.",
+      "link": "/"
+    },
+    {
+      "icon": "https://catalyst-ca.net/sites/default/files/styles/landing_block/public/2020-01/icon_whatwedo_05.png?itok=mpPUt0Lx",
+      "heading": "Technical consulting",
+      "description": "Solution architecture design, implementing and supporting secure systems.",
+      "link": "/"
+    },
+    {
+      "icon": "https://catalyst-ca.net/sites/default/files/styles/landing_block/public/2020-01/icon_whatwedo_04.png?itok=OXxGR4c3",
+      "heading": "Hosting",
+      "description": "Cloud-based business applications.",
+      "link": "/"
+    },
+    {
+      "icon": "https://catalyst-ca.net/sites/default/files/styles/landing_block/public/2020-01/icon_whatwedo_01.png?itok=Q-Jwc1HO",
+      "heading": "Consulting and planning",
+      "description": "Planning and strategy, business analysis, process modelling, project management, technical strategies, RFI/RFP management.",
+      "link": "/"
+    }
+  ]
+
+}

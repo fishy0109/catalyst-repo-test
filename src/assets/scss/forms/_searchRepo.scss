@@ -1,0 +1,107 @@
+.cat-repo-search {
+  background-color: $white;
+
+  .cat-repo-search-inner {
+    .cat-repo-filter {
+      width: 100%;
+      justify-content: space-between;
+
+      label {
+        width: 30%;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .btn-reset-wrap {
+    text-align: right;
+
+    @include breakpoint(lg) {
+      margin-bottom: $spacer;
+    }
+
+    .btn-reset {
+      font-size: $small-font-size;
+      font-weight: $weight-semi;
+      color: $cat-gunmetal;
+      font-family: $font-family2;
+      text-decoration: none;
+      @include transition($btn-transition);
+
+      &:hover {
+        color: $cat-red;
+      }
+
+      i,
+      .fa,
+      svg {
+        margin-right: 5px;
+        display: none;
+
+        @include breakpoint(lg) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  // Breakpoint options
+  @include breakpoint(xl) {
+    // >1200px
+  }
+
+  @include breakpoint(lg) {
+    //1200px
+    .cat-repo-search-inner {
+      flex-wrap: wrap;
+
+      .form-group {
+        width: calc(33.3% - #{$spacer/2});
+        min-width: 1px !important;
+      }
+
+      .cat-btn {
+        width: 100%;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .btn {
+        width: auto;
+        padding-left: $input-btn-padding-x-lg;
+        padding-right: $input-btn-padding-x-lg;
+
+        i,
+        .fa {
+          display: none;
+        }
+
+        .sr-only {
+          position: relative;
+          width: auto;
+          height: auto;
+          overflow: unset;
+          clip: unset;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(md) {
+    //992px
+  }
+
+  @include breakpoint(sm) {
+    //768px
+  }
+
+  @include breakpoint(xs) {
+    //576px
+    .cat-repo-search-inner {
+      .form-group {
+        width: calc(50% - #{$spacer/2});
+      }
+    }
+  }
+}

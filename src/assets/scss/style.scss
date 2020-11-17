@@ -1,0 +1,25 @@
+// Framework
+//
+@import "variables";
+@import "~bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CTitillium+Web:300,400,600,700");
+
+// Vendors style includes
+//
+@import "~vue-select/src/scss/vue-select.scss";
+
+//Imports
+@import "mixins";
+@import "headers/headerGlobal";
+@import "headers/navigation";
+@import "headers/navigationMob";
+@import "headers/navigationGlobal";
+@import "banners/bannerHero";
+@import "banners/sliderControls";
+@import "footers/organismFooterGlobal";
+@import "icons/icons";
+@import "repos/repoCard";
+@import "repos/repoTile";
+@import "forms/searchRepo";
+@import "forms/radiobtn";
+@import "forms/sortRepo";
