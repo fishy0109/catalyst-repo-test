@@ -108,6 +108,11 @@ $slider-controls-dark: $cat-gunmetal;
           margin-right: -2px;
         }
       }
+
+      @include breakpoint(md) {
+        border-color: $cat-red;
+        color: $cat-red;
+      }
     }
   }
 

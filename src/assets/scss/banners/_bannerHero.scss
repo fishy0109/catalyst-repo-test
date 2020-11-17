@@ -177,7 +177,8 @@ $banner-search-animation-speed: 0.2s;
 
       @include breakpoint(md) {
         padding-top: $spacer * 2;
-        background-color: rgba(0, 0, 0, 1);
+        background-color: $cat-pink;
+        color: $cat-black;
       }
 
       .cat-section-header {

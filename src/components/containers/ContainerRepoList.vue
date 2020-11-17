@@ -62,7 +62,7 @@
             class="form-control"
             id="sort"
             v-model="sortBy"
-            @change="sortData(sortBy, orderBy)"
+            @change="sortData($event)"
           >
             <option
               v-for="(option, index) in sortOptions"
@@ -84,7 +84,7 @@
             class="form-control"
             id="order"
             v-model="orderBy"
-            @change="sortData(sortBy, orderBy)"
+            @change="sortOrder($event)"
           >
             <option
               v-for="(option, index) in orderOptions"
@@ -133,8 +133,6 @@
   </div>
   </div>
   </div>
-  
-  
 </template>
 
 <script>
@@ -176,12 +174,11 @@ export default {
       orderBy: "DESC"
     }
   },
-  
 
   components: { RepoTileItem },
 
   props: {
-    
+
   },
 
   created() {
@@ -190,7 +187,7 @@ export default {
       .then(res => {
         this.compItems = res.data.sort(function(a, b){
           return new Date(b.updated_at) - new Date(a.updated_at)
-        }).slice(0, 10);
+        });
         this.license = res.data.license;
       })
   },
@@ -208,37 +205,67 @@ export default {
           return item.fork === false;
         });
       }
-
     }
-
   },
 
   methods: {
-    
-    sortData(sortkey, order) {
-      console.log(sortkey + order);
-      return this.filteredCompItems.sort(function(a, b) {
-        if(order == "ASC") {
-          return a.sortkey - b.sortkey;
-        } else {
-          return b.sortkey - a.sortkey;
+    sortOrder(event) {
+      if(event.target.value == "ASC") {
+        this.sortAsc(this.sortBy);
+      } else {
+        this.sortDesc(this.sortBy);
+      }
+    },
+
+    sortData(event) {
+      if(this.orderBy == "ASC") {
+        this.sortAsc(event.target.value);
+      } else {
+        this.sortDesc(event.target.value);
+      }
+    },
+
+    sortAsc: function(sortKey) {
+      if(sortKey.indexOf("at") > 0) {
+        this.compItems.sort(function(a, b){
+          return new Date(a.sortKey) - new Date(b.sortKey)
+        })
+      } else {
+        this.compItems.sort(function(a, b) {
+        var x = a.sortKey;
+        var y = b.sortKey;
+        if (x < y) {
+          return -1;
         }
+        if (x > y) {
+          return 1;
+        }
+        return 0;
       })
-      
+      }
+
+    },
+
+    sortDesc: function(sortKey) {
+      if(sortKey.indexOf("at") > 0) {
+        this.compItems.sort(function(a, b){
+          return new Date(b.sortKey) - new Date(a.sortKey)
+        })
+      } else {
+        this.compItems.sort(function(a, b) {
+        var x = a.sortKey;
+        var y = b.sortKey;
+        if (y < x) {
+          return -1;
+        }
+        if (y > x) {
+          return 1;
+        }
+        return 0;
+      });
+      }
+
     }
   }
-
-    // filteredCompItems: function() {
-    //   var sortKey = this.sortBy;
-    //   return this.compItems.sort(function(a, b) {
-    //     if(this.orderBy == "ASC") {
-    //     return a.sortKey - b.sortKey;
-    //   } else {
-    //     return b.sortKey - a.sortKey;
-    //   }
-    //   })
-    // }
-  
-
 }
 </script>

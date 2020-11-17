@@ -5,7 +5,6 @@
       <header-logo-section></header-logo-section>
       <header-menu></header-menu>
     </header>
-    
     <banner-hero></banner-hero>
     <container-icon-collection
     :itemsPerRow="3"
